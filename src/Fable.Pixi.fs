@@ -5973,8 +5973,13 @@ module PIXI =
         /// A temp matrix
         abstract TEMP_MATRIX: PIXI.Matrix with get, set
 
-    type IPoint =
-        U2<PIXI.Point, PIXI.ObservablePoint>
+    type [<AllowNullLiteral>] IPoint =
+        abstract x: float with get, set
+        abstract y: float with get, set
+        abstract copyFrom: p: IPoint -> IPoint
+        abstract copyTo: p: 'T -> 'T
+        abstract equals: p: IPoint -> bool
+        abstract set: ?x: float * ?y: float -> unit
 
     (* TODO 
     [<RequireQualifiedAccess; CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
