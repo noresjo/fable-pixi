@@ -6033,6 +6033,7 @@ module PIXI =
     /// The Point object represents a location in a two-dimensional coordinate system, where x represents
     /// the horizontal axis and y represents the vertical axis.
     type [<AllowNullLiteral>] Point =
+        inherit IPoint
         abstract copy: unit -> unit
         abstract x: float with get, set
         abstract y: float with get, set
@@ -6116,7 +6117,7 @@ module PIXI =
 
     /// A class to define a shape via user defined co-orinates.
     type [<AllowNullLiteral>] PolygonStatic =
-        [<Emit "new $0($1...)">] abstract Create: [<ParamArray>] points: ResizeArray<U2<ResizeArray<PIXI.Point>, ResizeArray<float>>> -> Polygon
+        [<Emit "new $0($1...)">] abstract Create: [<ParamArray>] points: U2<ResizeArray<PIXI.Point>, ResizeArray<float>> -> Polygon
 
     /// Rectangle object is an area defined by its position, as indicated by its top-left corner
     /// point (x, y) and by its width and its height.
